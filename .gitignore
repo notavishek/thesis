@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Tests
+.pytest_cache/
+.coverage
+
+# MyPy
+.mypy_cache/
+
+# Logs
+logs/
+*.log
+
+# Model checkpoints and large artifacts
+checkpoints/
+*.pt
+*.pth
+*.bin
+
+# Datasets and raw data (uncomment if you want to track small curated files)
+dataset/
+*.csv
+*.tsv
+
+# Weights & Biases local files
+wandb/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Secrets
+.env
+secrets.txt
+
+# Misc
+coverage.xml
+htmlcov/
+
+# If you want to keep CSVs in repo, remove or comment out the `dataset/` and `*.csv` lines above.
