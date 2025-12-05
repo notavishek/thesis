@@ -1,0 +1,25 @@
+# Core ML packages (torch installed separately with CUDA)
+transformers>=4.30.0
+sentencepiece
+tokenizers
+
+# Data processing
+pandas
+numpy
+scikit-learn
+scipy
+
+# Experiment tracking (optional)
+wandb
+
+# Utilities
+tqdm
+PyYAML
+requests
+filelock
+regex
+huggingface-hub
+
+# Jupyter
+jupyter
+ipykernel

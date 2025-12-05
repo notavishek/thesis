@@ -1,0 +1,72 @@
+============================================
+  GOOGLE COLAB TRAINING INSTRUCTIONS
+  Multilingual Hate Speech Detection
+============================================
+
+FILES TO UPLOAD TO COLAB:
+  1. colab_training.ipynb  (the notebook)
+  2. dataset/UNIFIED_ALL_SPLIT.csv  (the dataset - 75,864 samples)
+
+STEP-BY-STEP GUIDE:
+-------------------
+
+1. Go to https://colab.research.google.com/
+
+2. Click "Upload" and select colab_training.ipynb
+
+3. IMPORTANT: Enable GPU
+   - Go to: Runtime → Change runtime type
+   - Select: GPU (T4 is free, A100 is paid)
+   - Click Save
+
+4. Run Cell 1 (Install dependencies)
+   - Should show "CUDA available: True"
+   - If not, go back to step 3!
+
+5. Run Cell 2 (Upload dataset)
+   - Click "Choose Files" when prompted
+   - Select UNIFIED_ALL_SPLIT.csv from your dataset folder
+   - Wait for upload (~30 seconds)
+
+6. Run remaining cells in order (Cells 3-9)
+
+7. Cell 9 starts training - takes ~3-4 hours total
+   - Each epoch: ~30-45 minutes
+   - 5 epochs total
+   - You'll see progress bars
+
+8. After training, run Cell 10 (Final evaluation)
+
+9. Run Cell 11 to download the trained model
+   - Downloads as trained_model.zip
+   - Extract to your local checkpoints/ folder
+
+EXPECTED RESULTS:
+-----------------
+- hate_type_macro_f1: ~0.45-0.55
+- target_group_macro_f1: ~0.35-0.45
+- severity_macro_f1: ~0.40-0.50
+
+TROUBLESHOOTING:
+----------------
+Q: "CUDA not available" error
+A: Go to Runtime → Change runtime type → GPU
+
+Q: "Session disconnected"
+A: Colab has a 12-hour limit. Use Cell 9's resume feature:
+   resume_checkpoint = 'checkpoints/xlmr_colab_epoch2.pt'
+
+Q: Upload taking too long
+A: Use Google Drive instead (Cell 1-ALT shows how)
+
+Q: Out of memory
+A: Reduce BATCH_SIZE from 16 to 8 in Cell 6
+
+TIPS:
+-----
+- Keep the browser tab active (Colab disconnects if idle)
+- Free tier gives ~12 hours of T4 GPU time
+- Training progress is saved after each epoch
+- You can resume if disconnected!
+
+============================================
