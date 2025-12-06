@@ -81,6 +81,10 @@ def compute_severity(text, base_severity=0):
 
 def map_bengali_hate_v1(df):
     """Map Bengali Hate v1.0 dataset"""
+    # Fix delimiter issue - file is tab-separated
+    if len(df.columns) == 1:
+        df = pd.read_csv('dataset/bengali_ hate_v1.0.csv', sep='\t')
+    
     df.columns = df.columns.str.strip()
     label_map = {
         'Political': 1, 'political': 1,
@@ -96,6 +100,12 @@ def map_bengali_hate_v1(df):
     out['language'] = 'bangla'
     out['hate_type'] = df['label'].map(label_map).fillna(-1).astype(int) if 'label' in df.columns else -1
     out['target_group'] = -1
+    
+    # CRITICAL FIX: Remap gender slurs from Personal → Gender
+    gender_keywords = ['খানকি', 'khanki', 'বেশ্যা', 'beshya', 'মাগি', 'magi', 'রান্ডি', 'randi', 'whore', 'slut', 'bitch']
+    for keyword in gender_keywords:
+        mask = out['text'].str.contains(keyword, case=False, na=False)
+        out.loc[mask, 'hate_type'] = 3  # Remap to Gender
     
     # Smart severity: base on hate_type, then analyze content
     base_sev = np.where(out['hate_type'] > 0, 1, 0)
@@ -123,6 +133,12 @@ def map_bengali_hate_v2(df):
     out['language'] = 'bangla'
     out['hate_type'] = df['label'].map(label_map).fillna(-1).astype(int) if 'label' in df.columns else -1
     out['target_group'] = df['target'].map(target_map).fillna(-1).astype(int) if 'target' in df.columns else -1
+    
+    # CRITICAL FIX: Remap gender slurs from Personal → Gender
+    gender_keywords = ['খানকি', 'khanki', 'বেশ্যা', 'beshya', 'মাগি', 'magi', 'রান্ডি', 'randi', 'whore', 'slut', 'bitch']
+    for keyword in gender_keywords:
+        mask = out['text'].str.contains(keyword, case=False, na=False)
+        out.loc[mask, 'hate_type'] = 3  # Remap to Gender
     
     # Smart severity based on content
     base_sev = np.where(out['hate_type'] > 0, 1, 0)
@@ -242,7 +258,8 @@ def save_unified(df, name):
     df.to_csv(f'dataset/unified_{name}.csv', index=False, encoding='utf-8')
 
 if __name__ == "__main__":
-    df_bhv1 = pd.read_csv('dataset/bengali_ hate_v1.0.csv')
+    # Fix: Bengali v1 is tab-separated
+    df_bhv1 = pd.read_csv('dataset/bengali_ hate_v1.0.csv', sep='\t')
     bhv1 = map_bengali_hate_v1(df_bhv1)
     bhv1 = pad_missing(bhv1)
     save_unified(bhv1, 'bhv1')
