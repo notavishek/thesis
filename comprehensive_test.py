@@ -352,7 +352,7 @@ def main():
     
     # Test different checkpoints:
     # checkpoint_path = 'checkpoints/xlmr_v2_classweights_best (1).pt'  # With class weights - 42.6% acc
-    checkpoint_path = 'checkpoints/xlmr_full_large_best.pt'  # Without class weights - testing
+    checkpoint_path = 'checkpoints/xlmr_enhanced_best.pt'  # Enhanced dataset model
     print(f"📁 Loading checkpoint: {checkpoint_path}")
     
     tokenizer = XLMRobertaTokenizer.from_pretrained('xlm-roberta-large')

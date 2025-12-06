@@ -78,11 +78,14 @@ You have successfully:
 ### Phase 2: Google Colab Full Training (1-2 hours)
 
 #### Step 2.1: Upload Files to Google Drive
+**CRITICAL UPDATE:** We fixed a major bug where "Not Hate" Bengali samples were missing.
+**You MUST upload the NEW dataset generated on Dec 7.**
+
 Create folder: `My Drive/thesis_training/`
 
 **Files to upload:**
-1. `dataset/UNIFIED_ALL_SPLIT_ENHANCED.csv` (or FILTERED if you prefer)
-2. `main.ipynb` (optional - can copy cells to Colab)
+1. `dataset/UNIFIED_ALL_SPLIT_ENHANCED.csv` (Overwrite the old one!)
+2. `main.ipynb` (optional)
 
 **Upload via:**
 - Google Drive web interface, OR
