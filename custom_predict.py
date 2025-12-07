@@ -6,7 +6,7 @@ import sys
 # ============================================================
 # 1. SETUP
 # ============================================================
-CHECKPOINT_PATH = 'checkpoints/xlmr_enhanced_best.pt'
+CHECKPOINT_PATH = 'checkpoints/xlmr_augmented_best.pt'
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ============================================================
