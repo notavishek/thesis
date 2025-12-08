@@ -1,0 +1,44 @@
+⏳ Loading best SMART model for evaluation...
+🚀 Evaluating on 20852 test samples...
+Evaluating: 100%
+ 1304/1304 [08:32<00:00,  3.14it/s]
+
+📊 --- HATE TYPE Report ---
+              precision    recall  f1-score   support
+
+           0     0.9698    0.9609    0.9653      9354
+           1     0.8084    0.7024    0.7517       709
+           2     0.8418    0.8204    0.8309       668
+           3     0.7048    0.8476    0.7696       538
+           4     0.9209    0.9466    0.9336      7362
+           5     0.9298    0.8367    0.8808      1188
+
+    accuracy                         0.9311     19819
+   macro avg     0.8626    0.8524    0.8553     19819
+weighted avg     0.9319    0.9311    0.9310     19819
+
+
+📊 --- TARGET GROUP Report ---
+              precision    recall  f1-score   support
+
+           0     0.9761    0.9723    0.9742      9267
+           1     0.8802    0.9351    0.9069      4394
+           2     0.6691    0.5636    0.6118       653
+           3     0.9468    0.8851    0.9149      2071
+
+    accuracy                         0.9350     16385
+   macro avg     0.8680    0.8390    0.8519     16385
+weighted avg     0.9344    0.9350    0.9342     16385
+
+
+📊 --- SEVERITY Report ---
+              precision    recall  f1-score   support
+
+           0     0.9688    0.9720    0.9704      9194
+           1     0.9547    0.9429    0.9488      6765
+           2     0.9857    0.9740    0.9798      3811
+           3     0.8346    0.9094    0.8704      1082
+
+    accuracy                         0.9597     20852
+   macro avg     0.9359    0.9496    0.9423     20852
+weighted avg     0.9603    0.9597    0.9599     20852
