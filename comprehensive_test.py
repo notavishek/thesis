@@ -355,8 +355,8 @@ def main():
     # checkpoint_path = 'checkpoints/xlmr_enhanced_best.pt'  # Enhanced dataset model
     # checkpoint_path = 'checkpoints/xlmr_augmented_best.pt'  # Augmented (Banglish + Severity Fix) model
     # checkpoint_path = 'checkpoints/xlmr_hard_best.pt'  # Hard Mode (Dropout 0.5, WD 0.1) model
-    # checkpoint_path = 'checkpoints/xlmr_smart_best.pt'  # Smart Mode (Focal Loss, Layer-wise) model
-    checkpoint_path = 'checkpoints/xlmr_corrected.pt'  # Corrected (Smart + Neutral Boost) model
+    checkpoint_path = 'checkpoints/xlmr_smart_best.pt'  # Smart Mode (Focal Loss, Layer-wise) model
+    # checkpoint_path = 'checkpoints/xlmr_corrected.pt'  # Corrected (Smart + Neutral Boost) model
     print(f"📁 Loading checkpoint: {checkpoint_path}")
     
     tokenizer = XLMRobertaTokenizer.from_pretrained('xlm-roberta-large')
