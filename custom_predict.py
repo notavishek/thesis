@@ -6,14 +6,14 @@ import sys
 # ============================================================
 # 1. SETUP
 # ============================================================
-CHECKPOINT_PATH = 'checkpoints/xlmr_augmented_best.pt'
+CHECKPOINT_PATH = 'checkpoints/xlmr_base_final_best.pt'
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ============================================================
 # 2. MODEL DEFINITION
 # ============================================================
 class MultiTaskXLMRRoberta(nn.Module):
-    def __init__(self, model_name='xlm-roberta-large', dropout=0.2,
+    def __init__(self, model_name='xlm-roberta-base', dropout=0.2,
                  n_hate_type=6, n_target_group=4, n_severity=4):
         super().__init__()
         self.backbone = XLMRobertaModel.from_pretrained(model_name)

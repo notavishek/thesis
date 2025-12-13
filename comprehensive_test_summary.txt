@@ -1,7 +1,0 @@
-COMPREHENSIVE TEST SUMMARY
-================================================================================
-
-Total Examples: 108
-Hate Type Accuracy: 71/108 (65.7%)
-Target Group Accuracy: 59/108 (54.6%)
-Severity Accuracy: 43/108 (39.8%)
